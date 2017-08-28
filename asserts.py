@@ -1,13 +1,12 @@
-def count_upper_case(message):
-    count = 0
-    for c in message:
-        if c.isupper():
-            count += 1
-    return count
+def is_even(number):
+    return number % 2 == 0
 
-assert count_upper_case("") == 0, "Empty String"
-assert count_upper_case("A") == 1, "One upper case"
-assert count_upper_case("a") == 0, "One lower case"
-assert count_upper_case("$%^&") == 0, "Only special characters"
 
-print("All tests pass")
+def even_numbers_of_evens(numbers):
+    evens = sum([1 for n in numbers if is_even(n)])
+    return False if evens == 0 else is_even(evens)
+
+assert even_numbers_of_evens([]) == False, "No numbers"
+assert even_numbers_of_evens([2, 4]) == True, "Two even numbers"
+assert even_numbers_of_evens([2]) == False, "One even number"
+assert even_numbers_of_evens([1, 3, 9]) == False, "No even numbers"
